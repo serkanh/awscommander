@@ -9,9 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.2.47",
     "commander": "^2.9.0"
   },
   "bin": {
-     "awscommander":"./awscommander.js"
+    "awscommander": "./awscommander.js"
   }
 }
