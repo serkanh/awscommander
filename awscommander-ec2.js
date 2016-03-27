@@ -2,14 +2,16 @@
 
 var program = require('commander');
 var AWS = require('aws-sdk');
-
-var ec2 = new AWS.EC2({region: 'us-east-2'});
+//TODO move settings to config file
+var ec2 = new AWS.EC2({region: 'us-east-1'});
 
 program
   .action(function(cmd){
      switch(cmd){
          case "getInstanceId":            
             console.log("getInstanceId called with "+program.args[1])
+            break;
+         case "listAllInstances":
             // create the AWS.Request object
             var request = ec2.describeInstances(function(error, data) {
                 if (error) {
@@ -17,10 +19,7 @@ program
                 } else {
                     console.log(data); // request succeeded
                 }
-            });          
-            break;
-         case "listAllInstances":
-            console.log("getInstanceId called")
+            });        
             break;          
      }
   })
