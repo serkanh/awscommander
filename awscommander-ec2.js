@@ -2,6 +2,7 @@
 
 var program = require('commander');
 var AWS = require('aws-sdk');
+
 //TODO move settings to config file
 var ec2 = new AWS.EC2({region: 'us-east-1'});
 
@@ -27,8 +28,8 @@ program
 program.on('--help', function(){
     console.log('  Examples:');
     console.log('');
-    console.log('    $ custom-help --help');
-    console.log('    $ custom-help -h');
+    console.log('    $ getInstanceId <id>');
+    console.log('    $ listAllInstances');
     console.log('');
 });
 
