@@ -1,22 +1,32 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-console.log("testing");
+
 
 program
   .option('-id, --instanceId', 'instanceId')
-  .parse(process.argv);
-
-var pkgs = program.args;
-
-if (!pkgs.length) {
-  console.error('packages required');
-  process.exit(1);
-}
-
-console.log("test");
-if (program.force) console.log('  force: install');
-pkgs.forEach(function(pkg){
-  console.log('  install : %s', pkg);
+  .action(function(cmd,params){
+     switch(cmd){
+         case "getInstanceId":
+            console.log("getInstanceId called with"+params)
+            break;
+         case "listAllInstances":
+            console.log("getInstanceId called")
+            break;          
+     }
+  })
+  
+program.on('--help', function(){
+    console.log('  Examples:');
+    console.log('');
+    console.log('    $ custom-help --help');
+    console.log('    $ custom-help -h');
+    console.log('');
 });
-console.log("test2");
+
+program.parse(process.argv);
+  
+
+if(process.argv.length <= 2){
+  program.help();  
+};
