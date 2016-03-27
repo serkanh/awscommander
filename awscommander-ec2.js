@@ -4,11 +4,10 @@ var program = require('commander');
 
 
 program
-  .option('-id, --instanceId', 'instanceId')
-  .action(function(cmd,params){
+  .action(function(cmd){
      switch(cmd){
-         case "getInstanceId":
-            console.log("getInstanceId called with"+params)
+         case "getInstanceId":            
+            console.log("getInstanceId called with "+program.args[1])
             break;
          case "listAllInstances":
             console.log("getInstanceId called")
