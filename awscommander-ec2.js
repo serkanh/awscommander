@@ -3,7 +3,7 @@
 var program = require('commander');
 var AWS = require('aws-sdk');
 
-var ec2 = new AWS.EC2({region: 'us-east-1'});
+var ec2 = new AWS.EC2({region: 'us-east-2'});
 
 program
   .action(function(cmd){
@@ -17,10 +17,7 @@ program
                 } else {
                     console.log(data); // request succeeded
                 }
-            });
-
-            // send the request
-            request.send();
+            });          
             break;
          case "listAllInstances":
             console.log("getInstanceId called")
