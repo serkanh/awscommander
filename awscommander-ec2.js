@@ -19,11 +19,6 @@ program
                 }
             });
 
-            // register a callback to report on the data
-            request.on('success', function(resp) {
-                console.log(resp.data); // log the successful data response
-            });
-
             // send the request
             request.send();
             break;
